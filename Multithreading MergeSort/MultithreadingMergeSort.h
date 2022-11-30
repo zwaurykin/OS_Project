@@ -2,12 +2,14 @@
 #define __MMS_H__
 
 // number of elements in array
-#define MAX 900000
+#define MAX 50
 
 // number of threads
 #define THREAD_MAX 4
 
 using namespace std;
+
+bool selectionUsed =false;
 
 // array of size MAX
 int a[MAX];

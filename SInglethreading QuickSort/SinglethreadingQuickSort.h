@@ -5,9 +5,13 @@
 #include <pthread.h>
 #include <stdlib.h>
 #include <string.h>
+#include <iostream>
 
-#define MAX 900000
+using namespace std;
+
+#define MAX 101
 int arr[MAX];
+bool selectionUsed = false;
 
 void swap(int *a, int *b);
 int partition(int arr[], int low, int high);

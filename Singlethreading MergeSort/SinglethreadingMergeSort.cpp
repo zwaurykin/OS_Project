@@ -78,11 +78,41 @@ void printArray(int A[], int size)
 	printf("\n");
 }
 
+// Swap function
+void swap(int *xp, int *yp)
+{
+	int temp = *xp;
+	*xp = *yp;
+	*yp = temp;
+}
+
+void selectionSort(int arr[], int n)
+{
+	int i, j, min_idx;
+
+	// One by one move boundary of
+	// unsorted subarray
+	for (i = 0; i < n - 1; i++)
+	{
+
+		// Find the minimum element in
+		// unsorted array
+		min_idx = i;
+		for (j = i + 1; j < n; j++)
+			if (arr[j] < arr[min_idx])
+				min_idx = j;
+
+		// Swap the found minimum element
+		// with the first element
+		if (min_idx != i)
+			swap(&arr[min_idx], &arr[i]);
+	}
+}
+
 /* Driver program to test above functions */
 int main()
 {
-	printf("SingleThreading MergeSort\n");
-	printf("\n");
+
 	srand(time(NULL));
 	// generating random values in array
 	for (int i = 0; i < MAX; i++)
@@ -91,17 +121,39 @@ int main()
 	}
 	int arr_size = sizeof(arr) / sizeof(arr[0]);
 	printf("Given array is \n");
-	printArray(arr, arr_size);
+	// printArray(arr, arr_size);
+	for (int i = 0; i < MAX; i++)
+		cout << arr[i] << " ";
+	cout << endl;
+	cout << endl;
 	// t1 and t2 for calculating time for
 	// merge sort
 	clock_t t1, t2;
 	double time_difference;
 	t1 = clock();
-	mergeSort(arr, 0, arr_size - 1);
+	if (MAX < 100)
+	{
+		selectionSort(arr, MAX);
+		selectionUsed = true;
+	}
+	else
+	{
+		mergeSort(arr, 0, arr_size - 1);
+	}
 	t2 = clock();
 	time_difference = (double)(t2 - t1) / CLOCKS_PER_SEC;
-	printf("\nSorted array is \n");
-	printArray(arr, arr_size);
+	cout << endl;
+	// displaying sorted array
+	cout << "Sorted array via ";
+
+	selectionUsed ? cout << "Selection " : cout << "Merge ";
+	cout << "sort is:";
+	cout << endl;
+	for (int i = 0; i < MAX; i++)
+		cout << arr[i] << " ";
+	cout << endl;
+	// time taken by merge sort in seconds
+	cout << endl;
 	printf("\n\nTotal time taken by CPU: %f\n", time_difference);
 	return 0;
 }

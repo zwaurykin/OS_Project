@@ -5,8 +5,14 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+#include <stdbool.h>
+#include <iostream>
 
-#define MAX 900000
+using namespace std;
+
+#define MAX 50
+
+bool selectionUsed = false;
 
 void *run(void *p); /* threads call this function */
 int array_master[MAX];

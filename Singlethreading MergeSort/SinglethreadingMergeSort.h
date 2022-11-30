@@ -10,9 +10,15 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <iostream>
 
-#define MAX 900000
+using namespace std;
+
+
+#define MAX 50
 int arr[MAX];
+
+bool selectionUsed = false;
 
 void merge(int arr[], int l, int m, int r);
 /* l is for left index and r is right index of the
