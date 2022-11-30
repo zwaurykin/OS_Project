@@ -170,15 +170,15 @@ int main(int argc, char *argv[])
 		pthread_t tid3; // third thread id
 		pthread_attr_t attr3;
 
-		char *thread_no = "first";
+		char thread1[] = "first";
 		pthread_attr_init(&attr1);
-		pthread_create(&tid, &attr1, run, thread_no); /* create the thread */
+		pthread_create(&tid, &attr1, run, thread1); /* create the thread */
 
-		char *thread2 = "second";
+		char thread2[] = "second";
 		pthread_attr_init(&attr2);
 		pthread_create(&tid2, &attr2, run, thread2); /* create the thread */
 
-		char *thread3 = "third";
+		char thread3[] = "third";
 		pthread_attr_init(&attr3);
 		pthread_create(&tid3, &attr2, run, thread3); /* create the thread */
 

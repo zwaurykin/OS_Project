@@ -3,6 +3,47 @@
 #include <pthread.h>
 #include <time.h>
 
+//#define TEST
+
+void test1(void)
+{
+    int test_arr[10] = {0, 98, 45, 77, 26, 14, 33, 69, 420, 422};
+    selectionSort(test_arr, 10);
+    for (int i = 0; i < MAX; i++)
+        cout << test_arr[i] << " ";
+    cout << endl;
+}
+
+void test2(void)
+{
+	for (int i = 0; i < MAX; i++)
+	{
+		a[i] = rand() % 10;
+	}
+	for (int i = 0; i < MAX; i++)
+		cout << a[i] << " ";
+	cout << endl;
+	merge(0, 5, 10);
+	for (int i = 0; i < MAX; i++)
+		cout << a[i] << " ";
+	cout << endl;
+}
+
+void test3(void)
+{
+	for (int i = 0; i < MAX; i++)
+	{
+		a[i] = rand() % 10;
+	}
+	for (int i = 0; i < MAX; i++)
+		cout << a[i] << " ";
+	cout << endl;
+	merge_sort(0, 10);
+	for (int i = 0; i < MAX; i++)
+		cout << a[i] << " ";
+	cout << endl;
+}
+
 void merge(int low, int mid, int high)
 {
 	int *left = new int[mid - low + 1];
@@ -127,10 +168,20 @@ void selectionSort(int arr[], int n)
 	}
 }
 
+void runTestCases(void)
+{
+	test1();
+	test2();
+	test3();
+}
+
 // Driver Code
 int main()
 {
-	
+
+#ifdef TEST
+	runTestCases();
+#else
 	srand(time(NULL));
 	// generating random values in array
 	for (int i = 0; i < MAX; i++)
@@ -190,6 +241,6 @@ int main()
 	// time taken by merge sort in seconds
 	cout << endl;
 	cout << "Time taken: " << (t2 - t1) / (double)CLOCKS_PER_SEC << endl;
-
+#endif
 	return 0;
 }
