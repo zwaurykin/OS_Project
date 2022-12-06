@@ -3,8 +3,9 @@
 #include <pthread.h>
 #include <time.h>
 
-//#define TEST
+#define TEST
 
+//selectionSort()
 void test1(void)
 {
     int test_arr[10] = {0, 98, 45, 77, 26, 14, 33, 69, 420, 422};
@@ -13,7 +14,7 @@ void test1(void)
         cout << test_arr[i] << " ";
     cout << endl;
 }
-
+//merge()
 void test2(void)
 {
 	for (int i = 0; i < MAX; i++)
@@ -29,6 +30,7 @@ void test2(void)
 	cout << endl;
 }
 
+//merge_sort()
 void test3(void)
 {
 	for (int i = 0; i < MAX; i++)
